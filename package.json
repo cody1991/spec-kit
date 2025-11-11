@@ -1,0 +1,21 @@
+{
+  "name": "speckit-docs",
+  "version": "1.0.0",
+  "description": "Speckit 项目文档 - Spec-Driven Development 指南",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [
+    "speckit",
+    "spec-driven-development",
+    "documentation",
+    "vuepress"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.9"
+  }
+}
+
