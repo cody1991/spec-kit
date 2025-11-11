@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>规范编写最佳实践 | Speckit 文档</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/spec-kit/favicon.ico">
+    <meta name="description" content="Spec-Driven Development (SDD) 规范驱动开发完整指南">
+    
+    <link rel="preload" href="/spec-kit/assets/css/0.styles.f442a9c9.css" as="style"><link rel="preload" href="/spec-kit/assets/js/app.476d2fd2.js" as="script"><link rel="preload" href="/spec-kit/assets/js/2.2dd40177.js" as="script"><link rel="preload" href="/spec-kit/assets/js/1.17d0aedb.js" as="script"><link rel="preload" href="/spec-kit/assets/js/25.e6bc2012.js" as="script"><link rel="prefetch" href="/spec-kit/assets/js/10.e985ca35.js"><link rel="prefetch" href="/spec-kit/assets/js/11.0afb5fda.js"><link rel="prefetch" href="/spec-kit/assets/js/12.8b299763.js"><link rel="prefetch" href="/spec-kit/assets/js/13.8d34c887.js"><link rel="prefetch" href="/spec-kit/assets/js/14.ab0e75e9.js"><link rel="prefetch" href="/spec-kit/assets/js/15.0561e43f.js"><link rel="prefetch" href="/spec-kit/assets/js/16.b2b237ad.js"><link rel="prefetch" href="/spec-kit/assets/js/17.14876c9a.js"><link rel="prefetch" href="/spec-kit/assets/js/18.c5281ae0.js"><link rel="prefetch" href="/spec-kit/assets/js/19.2e55aad2.js"><link rel="prefetch" href="/spec-kit/assets/js/20.aef500c6.js"><link rel="prefetch" href="/spec-kit/assets/js/21.48e5b7aa.js"><link rel="prefetch" href="/spec-kit/assets/js/22.906c1e1f.js"><link rel="prefetch" href="/spec-kit/assets/js/23.46ac1f24.js"><link rel="prefetch" href="/spec-kit/assets/js/24.a08985e5.js"><link rel="prefetch" href="/spec-kit/assets/js/26.a0987df2.js"><link rel="prefetch" href="/spec-kit/assets/js/27.24d28641.js"><link rel="prefetch" href="/spec-kit/assets/js/28.f1d8a237.js"><link rel="prefetch" href="/spec-kit/assets/js/29.5116b763.js"><link rel="prefetch" href="/spec-kit/assets/js/3.97d37ad6.js"><link rel="prefetch" href="/spec-kit/assets/js/30.aadc1280.js"><link rel="prefetch" href="/spec-kit/assets/js/31.6f311a26.js"><link rel="prefetch" href="/spec-kit/assets/js/32.9c1bce0e.js"><link rel="prefetch" href="/spec-kit/assets/js/33.dde23b9b.js"><link rel="prefetch" href="/spec-kit/assets/js/34.080ad6c2.js"><link rel="prefetch" href="/spec-kit/assets/js/35.d60d1d2e.js"><link rel="prefetch" href="/spec-kit/assets/js/36.5ceec713.js"><link rel="prefetch" href="/spec-kit/assets/js/4.fd88fc27.js"><link rel="prefetch" href="/spec-kit/assets/js/5.61391dd4.js"><link rel="prefetch" href="/spec-kit/assets/js/6.d47544ab.js"><link rel="prefetch" href="/spec-kit/assets/js/7.95437d66.js"><link rel="prefetch" href="/spec-kit/assets/js/vendors~docsearch.94b65286.js">
+    <link rel="stylesheet" href="/spec-kit/assets/css/0.styles.f442a9c9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/spec-kit/" class="home-link router-link-active"><!----> <span class="site-name">Speckit 文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/spec-kit/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/spec-kit/guide/" class="nav-link">
+  介绍
+</a></div><div class="nav-item"><a href="/spec-kit/best-practices/" class="nav-link router-link-active">
+  最佳实践
+</a></div><div class="nav-item"><a href="/spec-kit/usage/" class="nav-link">
+  使用指南
+</a></div><div class="nav-item"><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/spec-kit/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/spec-kit/guide/" class="nav-link">
+  介绍
+</a></div><div class="nav-item"><a href="/spec-kit/best-practices/" class="nav-link router-link-active">
+  最佳实践
+</a></div><div class="nav-item"><a href="/spec-kit/usage/" class="nav-link">
+  使用指南
+</a></div><div class="nav-item"><a href="https://github.com/github/spec-kit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/spec-kit/best-practices/" aria-current="page" class="sidebar-link">最佳实践</a></li><li><a href="/spec-kit/best-practices/spec-writing.html" aria-current="page" class="active sidebar-link">规范编写最佳实践</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#引言" class="sidebar-link">引言</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#规范结构" class="sidebar-link">规范结构</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_1-基本信息" class="sidebar-link">1. 基本信息</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_2-功能描述" class="sidebar-link">2. 功能描述</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_3-api-定义" class="sidebar-link">3. API 定义</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_4-边界条件" class="sidebar-link">4. 边界条件</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_5-业务规则" class="sidebar-link">5. 业务规则</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_6-安全要求" class="sidebar-link">6. 安全要求</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_7-性能要求" class="sidebar-link">7. 性能要求</a></li></ul></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#编写技巧" class="sidebar-link">编写技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_1-使用示例" class="sidebar-link">1. 使用示例</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_2-使用图表" class="sidebar-link">2. 使用图表</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_3-使用模板" class="sidebar-link">3. 使用模板</a></li></ul></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#常见错误" class="sidebar-link">常见错误</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_1-规范不完整" class="sidebar-link">1. 规范不完整</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_2-边界条件遗漏" class="sidebar-link">2. 边界条件遗漏</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_3-数据类型不明确" class="sidebar-link">3. 数据类型不明确</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#_4-缺少示例" class="sidebar-link">4. 缺少示例</a></li></ul></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#规范评审" class="sidebar-link">规范评审</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#评审检查清单" class="sidebar-link">评审检查清单</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#评审流程" class="sidebar-link">评审流程</a></li></ul></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#工具推荐" class="sidebar-link">工具推荐</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#规范编写工具" class="sidebar-link">规范编写工具</a></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#规范验证工具" class="sidebar-link">规范验证工具</a></li></ul></li><li class="sidebar-sub-header"><a href="/spec-kit/best-practices/spec-writing.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/spec-kit/best-practices/team-collaboration.html" class="sidebar-link">团队协作最佳实践</a></li><li><a href="/spec-kit/best-practices/implementation.html" class="sidebar-link">实现开发最佳实践</a></li><li><a href="/spec-kit/best-practices/testing.html" class="sidebar-link">测试策略最佳实践</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="规范编写最佳实践"><a href="#规范编写最佳实践" class="header-anchor">#</a> 规范编写最佳实践</h1> <h2 id="引言"><a href="#引言" class="header-anchor">#</a> 引言</h2> <p>编写高质量的规范是 SDD 成功的关键。一份好的规范应该：</p> <ul><li><strong>完整</strong> - 覆盖所有功能和边界情况</li> <li><strong>清晰</strong> - 易于理解和实现</li> <li><strong>可测试</strong> - 可以转化为测试用例</li> <li><strong>可维护</strong> - 易于更新和版本管理</li></ul> <h2 id="规范结构"><a href="#规范结构" class="header-anchor">#</a> 规范结构</h2> <h3 id="_1-基本信息"><a href="#_1-基本信息" class="header-anchor">#</a> 1. 基本信息</h3> <p>每个规范应该包含：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Specification</span><span class="token punctuation">:</span> User Registration API
+<span class="token key atrule">Version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">Author</span><span class="token punctuation">:</span> Team Name
+<span class="token key atrule">Date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-15</span>
+<span class="token key atrule">Status</span><span class="token punctuation">:</span> Draft <span class="token punctuation">|</span> Review <span class="token punctuation">|</span> Approved <span class="token punctuation">|</span> Deprecated
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_2-功能描述"><a href="#_2-功能描述" class="header-anchor">#</a> 2. 功能描述</h3> <p>清晰描述功能的目的和范围：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Description</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+  This API allows users to register a new account.
+  It validates user input and creates a user record in the database.</span>
+  
+<span class="token key atrule">Scope</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> User registration with email and password
+  <span class="token punctuation">-</span> Email validation
+  <span class="token punctuation">-</span> Password strength validation
+  <span class="token punctuation">-</span> Account creation
+  
+<span class="token key atrule">Out of Scope</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Email verification (handled separately)
+  <span class="token punctuation">-</span> Social login (handled separately)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_3-api-定义"><a href="#_3-api-定义" class="header-anchor">#</a> 3. API 定义</h3> <h4 id="请求定义"><a href="#请求定义" class="header-anchor">#</a> 请求定义</h4> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Request</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Method</span><span class="token punctuation">:</span> POST
+  <span class="token key atrule">Path</span><span class="token punctuation">:</span> /api/v1/users
+  <span class="token key atrule">Headers</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> application/json
+    <span class="token key atrule">Accept</span><span class="token punctuation">:</span> application/json
+  <span class="token key atrule">Body</span><span class="token punctuation">:</span>
+    <span class="token key atrule">email</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+      <span class="token key atrule">format</span><span class="token punctuation">:</span> email
+      <span class="token key atrule">required</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">description</span><span class="token punctuation">:</span> User email address
+      <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;user@example.com&quot;</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+      <span class="token key atrule">minLength</span><span class="token punctuation">:</span> <span class="token number">8</span>
+      <span class="token key atrule">maxLength</span><span class="token punctuation">:</span> <span class="token number">128</span>
+      <span class="token key atrule">required</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">description</span><span class="token punctuation">:</span> User password
+      <span class="token key atrule">pattern</span><span class="token punctuation">:</span> <span class="token string">&quot;^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$&quot;</span>
+      <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;SecurePass123&quot;</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span>
+      <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+      <span class="token key atrule">minLength</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">maxLength</span><span class="token punctuation">:</span> <span class="token number">50</span>
+      <span class="token key atrule">required</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+      <span class="token key atrule">description</span><span class="token punctuation">:</span> User display name
+      <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;John Doe&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h4 id="响应定义"><a href="#响应定义" class="header-anchor">#</a> 响应定义</h4> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Responses</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Success (201 Created)</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Description</span><span class="token punctuation">:</span> User successfully created
+    <span class="token key atrule">Headers</span><span class="token punctuation">:</span>
+      <span class="token key atrule">Location</span><span class="token punctuation">:</span> /api/v1/users/<span class="token punctuation">{</span>id<span class="token punctuation">}</span>
+    <span class="token key atrule">Body</span><span class="token punctuation">:</span>
+      <span class="token key atrule">id</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> number
+        <span class="token key atrule">description</span><span class="token punctuation">:</span> Unique user identifier
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token number">12345</span>
+      <span class="token key atrule">email</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">format</span><span class="token punctuation">:</span> email
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;user@example.com&quot;</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;John Doe&quot;</span>
+      <span class="token key atrule">createdAt</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">format</span><span class="token punctuation">:</span> date<span class="token punctuation">-</span>time
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;2024-01-15T10:30:00Z&quot;</span>
+  
+  <span class="token key atrule">Error (400 Bad Request)</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Description</span><span class="token punctuation">:</span> Invalid request data
+    <span class="token key atrule">Body</span><span class="token punctuation">:</span>
+      <span class="token key atrule">message</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;Validation failed&quot;</span>
+      <span class="token key atrule">errors</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> array
+        <span class="token key atrule">items</span><span class="token punctuation">:</span>
+          <span class="token key atrule">field</span><span class="token punctuation">:</span> string
+          <span class="token key atrule">message</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">example</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">field</span><span class="token punctuation">:</span> <span class="token string">&quot;email&quot;</span>
+            <span class="token key atrule">message</span><span class="token punctuation">:</span> <span class="token string">&quot;Invalid email format&quot;</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">field</span><span class="token punctuation">:</span> <span class="token string">&quot;password&quot;</span>
+            <span class="token key atrule">message</span><span class="token punctuation">:</span> <span class="token string">&quot;Password must contain uppercase, lowercase, and number&quot;</span>
+  
+  <span class="token key atrule">Error (409 Conflict)</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Description</span><span class="token punctuation">:</span> Email already exists
+    <span class="token key atrule">Body</span><span class="token punctuation">:</span>
+      <span class="token key atrule">message</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;Email already registered&quot;</span>
+      <span class="token key atrule">code</span><span class="token punctuation">:</span>
+        <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+        <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;EMAIL_EXISTS&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br></div></div><h3 id="_4-边界条件"><a href="#_4-边界条件" class="header-anchor">#</a> 4. 边界条件</h3> <p>明确定义边界情况：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Edge Cases</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">Empty email</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Invalid email format</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Email too long (&gt;255 chars)</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Password too short (&lt;8 chars)</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Password too long (&gt;128 chars)</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Password without uppercase</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Password without lowercase</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Password without number</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Duplicate email</span><span class="token punctuation">:</span> 409 Conflict
+  <span class="token punctuation">-</span> <span class="token key atrule">Name too long (&gt;50 chars)</span><span class="token punctuation">:</span> 400 Bad Request
+  <span class="token punctuation">-</span> <span class="token key atrule">Special characters in name</span><span class="token punctuation">:</span> Allowed (UTF<span class="token punctuation">-</span>8)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="_5-业务规则"><a href="#_5-业务规则" class="header-anchor">#</a> 5. 业务规则</h3> <p>定义业务逻辑：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Business Rules</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Email must be unique across all users
+  <span class="token punctuation">-</span> Password must meet strength requirements
+  <span class="token punctuation">-</span> User account is created in &quot;pending&quot; state
+  <span class="token punctuation">-</span> Verification email is sent asynchronously
+  <span class="token punctuation">-</span> Account is activated after email verification
+  <span class="token punctuation">-</span> Failed registration attempts are logged
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_6-安全要求"><a href="#_6-安全要求" class="header-anchor">#</a> 6. 安全要求</h3> <p>定义安全相关要求：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Security</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> Password must be hashed (bcrypt<span class="token punctuation">,</span> cost factor 10)
+  <span class="token punctuation">-</span> Email must be validated server<span class="token punctuation">-</span>side
+  <span class="token punctuation">-</span> <span class="token key atrule">Rate limiting</span><span class="token punctuation">:</span> 5 requests per minute per IP
+  <span class="token punctuation">-</span> Input sanitization required
+  <span class="token punctuation">-</span> SQL injection prevention required
+  <span class="token punctuation">-</span> XSS prevention required
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_7-性能要求"><a href="#_7-性能要求" class="header-anchor">#</a> 7. 性能要求</h3> <p>定义性能指标：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Performance</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">Response time</span><span class="token punctuation">:</span> &lt; 200ms (p95)
+  <span class="token punctuation">-</span> <span class="token key atrule">Database query</span><span class="token punctuation">:</span> &lt; 50ms
+  <span class="token punctuation">-</span> <span class="token key atrule">Concurrent users</span><span class="token punctuation">:</span> 1000+
+  <span class="token punctuation">-</span> <span class="token key atrule">Throughput</span><span class="token punctuation">:</span> 100 requests/second
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="编写技巧"><a href="#编写技巧" class="header-anchor">#</a> 编写技巧</h2> <h3 id="_1-使用示例"><a href="#_1-使用示例" class="header-anchor">#</a> 1. 使用示例</h3> <p>提供清晰的示例：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Examples</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Success</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Request</span><span class="token punctuation">:</span>
+      POST /api/v1/users
+      <span class="token punctuation">{</span>
+        <span class="token key atrule">&quot;email&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;john@example.com&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;password&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;SecurePass123&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;John Doe&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token key atrule">Response</span><span class="token punctuation">:</span>
+      201 Created
+      <span class="token punctuation">{</span>
+        <span class="token key atrule">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;email&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;john@example.com&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;John Doe&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;createdAt&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2024-01-15T10:30:00Z&quot;</span>
+      <span class="token punctuation">}</span>
+  
+  <span class="token key atrule">Error</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Request</span><span class="token punctuation">:</span>
+      POST /api/v1/users
+      <span class="token punctuation">{</span>
+        <span class="token key atrule">&quot;email&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;invalid-email&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;password&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;weak&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token key atrule">Response</span><span class="token punctuation">:</span>
+      400 Bad Request
+      <span class="token punctuation">{</span>
+        <span class="token key atrule">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Validation failed&quot;</span><span class="token punctuation">,</span>
+        <span class="token key atrule">&quot;errors&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token key atrule">&quot;field&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;email&quot;</span><span class="token punctuation">,</span>
+            <span class="token key atrule">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Invalid email format&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token key atrule">&quot;field&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;password&quot;</span><span class="token punctuation">,</span>
+            <span class="token key atrule">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Password must contain uppercase, lowercase, and number&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="_2-使用图表"><a href="#_2-使用图表" class="header-anchor">#</a> 2. 使用图表</h3> <p>对于复杂流程，使用图表：</p> <div class="language-mermaid line-numbers-mode"><pre class="language-mermaid"><code><span class="token keyword">sequenceDiagram</span>
+    <span class="token keyword">participant</span> Client
+    <span class="token keyword">participant</span> API
+    <span class="token keyword">participant</span> Database
+    <span class="token keyword">participant</span> EmailService
+    
+    Client<span class="token arrow operator">-&gt;&gt;</span>API<span class="token operator">:</span> POST /api/v1/users
+    API<span class="token arrow operator">-&gt;&gt;</span>API<span class="token operator">:</span> Validate input
+    API<span class="token arrow operator">-&gt;&gt;</span>Database<span class="token operator">:</span> Check email exists
+    Database<span class="token arrow operator">--&gt;&gt;</span>API<span class="token operator">:</span> Email not found
+    API<span class="token arrow operator">-&gt;&gt;</span>API<span class="token operator">:</span> Hash password
+    API<span class="token arrow operator">-&gt;&gt;</span>Database<span class="token operator">:</span> Create user
+    Database<span class="token arrow operator">--&gt;&gt;</span>API<span class="token operator">:</span> User created
+    API<span class="token arrow operator">-&gt;&gt;</span>EmailService<span class="token operator">:</span> Send verification email
+    API<span class="token arrow operator">--&gt;&gt;</span>Client<span class="token operator">:</span> 201 Created
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="_3-使用模板"><a href="#_3-使用模板" class="header-anchor">#</a> 3. 使用模板</h3> <p>建立规范模板，保持一致性：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token comment"># API 规范模板</span>
+<span class="token key atrule">Specification</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>API Name<span class="token punctuation">]</span>
+<span class="token key atrule">Version</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Version<span class="token punctuation">]</span>
+<span class="token key atrule">Description</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Description<span class="token punctuation">]</span>
+
+<span class="token key atrule">Request</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Method</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Method<span class="token punctuation">]</span>
+  <span class="token key atrule">Path</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Path<span class="token punctuation">]</span>
+  <span class="token comment"># ...</span>
+
+<span class="token key atrule">Responses</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Success</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Status<span class="token punctuation">]</span>
+    <span class="token comment"># ...</span>
+  <span class="token key atrule">Errors</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token punctuation">[</span>Status<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Description<span class="token punctuation">]</span>
+      <span class="token comment"># ...</span>
+
+<span class="token key atrule">Edge Cases</span><span class="token punctuation">:</span>
+  <span class="token comment"># ...</span>
+
+<span class="token key atrule">Business Rules</span><span class="token punctuation">:</span>
+  <span class="token comment"># ...</span>
+
+<span class="token key atrule">Security</span><span class="token punctuation">:</span>
+  <span class="token comment"># ...</span>
+
+<span class="token key atrule">Performance</span><span class="token punctuation">:</span>
+  <span class="token comment"># ...</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h2 id="常见错误"><a href="#常见错误" class="header-anchor">#</a> 常见错误</h2> <h3 id="_1-规范不完整"><a href="#_1-规范不完整" class="header-anchor">#</a> 1. 规范不完整</h3> <p>❌ <strong>错误</strong>：只定义成功情况</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Response</span><span class="token punctuation">:</span> 200 OK with user object
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>✅ <strong>正确</strong>：定义所有可能的情况</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Responses</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Success (200 OK)</span><span class="token punctuation">:</span>
+    <span class="token comment"># ...</span>
+  <span class="token key atrule">Error (404 Not Found)</span><span class="token punctuation">:</span>
+    <span class="token comment"># ...</span>
+  <span class="token key atrule">Error (500 Internal Server Error)</span><span class="token punctuation">:</span>
+    <span class="token comment"># ...</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_2-边界条件遗漏"><a href="#_2-边界条件遗漏" class="header-anchor">#</a> 2. 边界条件遗漏</h3> <p>❌ <strong>错误</strong>：不考虑边界情况</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Request</span><span class="token punctuation">:</span>
+  <span class="token key atrule">id</span><span class="token punctuation">:</span> number
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>✅ <strong>正确</strong>：明确定义边界</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">Request</span><span class="token punctuation">:</span>
+  <span class="token key atrule">id</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> number
+    <span class="token key atrule">minimum</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">maximum</span><span class="token punctuation">:</span> <span class="token number">2147483647</span>
+    <span class="token key atrule">description</span><span class="token punctuation">:</span> User ID must be positive integer
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_3-数据类型不明确"><a href="#_3-数据类型不明确" class="header-anchor">#</a> 3. 数据类型不明确</h3> <p>❌ <strong>错误</strong>：使用模糊的类型</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">date</span><span class="token punctuation">:</span> string
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>✅ <strong>正确</strong>：明确格式</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">date</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+  <span class="token key atrule">format</span><span class="token punctuation">:</span> date<span class="token punctuation">-</span>time
+  <span class="token key atrule">pattern</span><span class="token punctuation">:</span> <span class="token string">&quot;^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$&quot;</span>
+  <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;2024-01-15T10:30:00Z&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_4-缺少示例"><a href="#_4-缺少示例" class="header-anchor">#</a> 4. 缺少示例</h3> <p>❌ <strong>错误</strong>：只有类型定义</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">email</span><span class="token punctuation">:</span> string
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>✅ <strong>正确</strong>：提供示例</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token key atrule">email</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> string
+  <span class="token key atrule">format</span><span class="token punctuation">:</span> email
+  <span class="token key atrule">example</span><span class="token punctuation">:</span> <span class="token string">&quot;user@example.com&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="规范评审"><a href="#规范评审" class="header-anchor">#</a> 规范评审</h2> <h3 id="评审检查清单"><a href="#评审检查清单" class="header-anchor">#</a> 评审检查清单</h3> <p>在提交规范评审前，检查：</p> <ul><li>[ ] 基本信息完整（版本、作者、日期等）</li> <li>[ ] 功能描述清晰</li> <li>[ ] 请求定义完整（方法、路径、头部、体）</li> <li>[ ] 响应定义完整（成功和所有错误情况）</li> <li>[ ] 边界条件考虑全面</li> <li>[ ] 业务规则明确</li> <li>[ ] 安全要求定义</li> <li>[ ] 性能要求明确</li> <li>[ ] 提供示例</li> <li>[ ] 使用一致的格式</li></ul> <h3 id="评审流程"><a href="#评审流程" class="header-anchor">#</a> 评审流程</h3> <ol><li><strong>自审</strong> - 编写者自己检查</li> <li><strong>同行评审</strong> - 团队成员评审</li> <li><strong>专家评审</strong> - 架构师或技术负责人评审</li> <li><strong>批准</strong> - 获得批准后开始实现</li></ol> <h2 id="工具推荐"><a href="#工具推荐" class="header-anchor">#</a> 工具推荐</h2> <h3 id="规范编写工具"><a href="#规范编写工具" class="header-anchor">#</a> 规范编写工具</h3> <ul><li><strong>OpenAPI/Swagger</strong> - 最流行的 API 规范格式</li> <li><strong>AsyncAPI</strong> - 异步 API 规范</li> <li><strong>JSON Schema</strong> - 数据验证规范</li> <li><strong>Markdown</strong> - 简单场景的文档规范</li></ul> <h3 id="规范验证工具"><a href="#规范验证工具" class="header-anchor">#</a> 规范验证工具</h3> <ul><li><strong>Spectral</strong> - OpenAPI 规范验证</li> <li><strong>Swagger Editor</strong> - 在线编辑和验证</li> <li><strong>Redocly</strong> - 规范管理和验证</li></ul> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>编写高质量规范的关键：</p> <ol><li><strong>结构完整</strong> - 包含所有必要部分</li> <li><strong>定义清晰</strong> - 使用明确的类型和格式</li> <li><strong>示例丰富</strong> - 提供成功和失败的示例</li> <li><strong>边界全面</strong> - 考虑所有边界情况</li> <li><strong>持续改进</strong> - 根据反馈不断优化</li></ol> <p>在下一节中，我们将学习<a href="/spec-kit/best-practices/team-collaboration.html">团队协作</a>的最佳实践。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">11/11/2025, 10:55:08 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/spec-kit/best-practices/" class="prev router-link-active">
+        最佳实践
+      </a></span> <span class="next"><a href="/spec-kit/best-practices/team-collaboration.html">
+        团队协作最佳实践
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/spec-kit/assets/js/app.476d2fd2.js" defer></script><script src="/spec-kit/assets/js/2.2dd40177.js" defer></script><script src="/spec-kit/assets/js/1.17d0aedb.js" defer></script><script src="/spec-kit/assets/js/25.e6bc2012.js" defer></script>
+  </body>
+</html>
