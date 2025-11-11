@@ -3,4 +3,4 @@ node_modules/
 .vuepress/dist
 .vuepress/cache
 *.log
-
+.git/hooks/*

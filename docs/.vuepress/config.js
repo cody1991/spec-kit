@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Speckit 文档',
   description: 'Spec-Driven Development (SDD) 规范驱动开发完整指南',
-  base: '/',
+  base: '/spec-kit/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],

@@ -4,7 +4,8 @@
   "description": "Speckit 项目文档 - Spec-Driven Development 指南",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "prepare": "node scripts/prepare.js"
   },
   "keywords": [
     "speckit",
